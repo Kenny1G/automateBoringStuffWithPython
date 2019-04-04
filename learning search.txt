@@ -1,0 +1,35 @@
+es.index(index='my_index', doc_type='my_index', id=1, 
+... body={'text': 'a second test'})
+
+es.search(index='my_index', doc_type='my_index',
+... body={'query': {'match': {'text': 'second'}}})
+{
+    'took': 1,
+    'timed_out': False,
+    '_shards': {'total': 5, 'successful': 5, 'skipped': 0, 'failed': 0},
+    'hits': {
+        'total': 1,
+        'max_score': 0.25316024,
+        'hits': [
+            {
+                '_index': 'my_index',
+                '_type': 'my_index',
+                '_id': '2',
+                '_score': 0.25316024,
+                '_source': {'text': 'a second test'}
+            }
+        ]
+    }
+}
+
+
+for post in Post.query.all():
+...     add_to_index('posts', post)
+>>> query_index('posts', 'one two three four five', 1, 100)
+([15, 13, 12, 4, 11, 8, 14], 7)
+
+query_index('posts', 'one two three four five', 1, 3)
+([15, 13, 12], 7)
+
+query_index('posts', 'one two three four five', 3, 3)
+([14], 7)

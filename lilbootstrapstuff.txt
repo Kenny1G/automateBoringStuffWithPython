@@ -1,0 +1,15 @@
+lil bootstrap stuffs.
+you can import flask-bootstrap
+ do the normal initialization in init
+
+https://pythonhosted.org/Flask-Bootstrap/basic-usage.html#available-blocks
+https://getbootstrap.com/docs/3.3/getting-started/#examples
+
+French toast
+vanilla 
+cinammon
+egg
+brown sugar
+milk
+syrup
+apply then fry

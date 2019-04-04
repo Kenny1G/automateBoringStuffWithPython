@@ -1,0 +1,22 @@
+Jinja 2 syntax
+
+jinja sub template
+	put the code in a html file whos name starts with _
+	so you know,
+	to use code in another template do:
+	{% include '_filename.html' %}
+	where you want the code to go
+
+form template format
+    <h1>Edit Profile</h1>
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.____.label }}<br>
+            {{ form._____(attribute=num, attribute=num) }}<br>
+            {% for error in form.____.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>

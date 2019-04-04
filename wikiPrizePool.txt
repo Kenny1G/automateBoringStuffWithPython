@@ -1,0 +1,39 @@
+{{TournamentResultsLineDuos|place=1|prize=|prizeunit=USD|player=KEPHRII |player1= TWITCHTVBIRD}}
+{{TournamentResultsLineDuos|place=2|prize=|prizeunit=USD|player=zunknown |player1= Jotobo}}
+{{TournamentResultsLineDuos|place=3|prize=|prizeunit=USD|player=Twitch: Karazz_Tv |player1= twitch.tv/dahmien}}
+{{TournamentResultsLineDuos|place=4|prize=|prizeunit=USD|player=Overpowered |player1= Sonii|hide=true}}
+{{TournamentResultsLineDuos|place=5|prize=|prizeunit=USD|player=Gotaga |player1= Mickalow}}
+{{TournamentResultsLineDuos|place=6|prize=|prizeunit=USD|player=BagginsTV |player1= Bonkar}}
+{{TournamentResultsLineDuos|place=7|prize=|prizeunit=USD|player=JusDas |player1= ChokeEveryday}}
+{{TournamentResultsLineDuos|place=8|prize=|prizeunit=USD|player=OWND.TV WhoisRoxis |player1= OWND.TV EmDy}}
+{{TournamentResultsLineDuos|place=9|prize=|prizeunit=USD|player=twitch.tv/DatKoko |player1= ConflictScurry}}
+{{TournamentResultsLineDuos|place=10|prize=|prizeunit=USD|player=Forsen |player1= Kowa}}
+{{TournamentResultsLineDuos|place=11|prize=|prizeunit=USD|player=frag^m |player1= cml}}
+{{TournamentResultsLineDuos|place=12|prize=|prizeunit=USD|player=Brain |player1= Gamehunter}}
+{{TournamentResultsLineDuos|place=13|prize=|prizeunit=USD|player=eU PrinceDannyTV |player1= SK Alternit}}
+{{TournamentResultsLineDuos|place=14|prize=|prizeunit=USD|player=TSM Gale Adelade |player1= Dyrus}}
+{{TournamentResultsLineDuos|place=15|prize=|prizeunit=USD|player=twitchtvchapo |player1= RNG|Viral}}
+{{TournamentResultsLineDuos|place=16|prize=|prizeunit=USD|player=xil |player1= Tempted}}
+{{TournamentResultsLineDuos|place=17|prize=|prizeunit=USD|player=Twitch.Voiiid |player1= Synergy}}
+{{TournamentResultsLineDuos|place=18|prize=|prizeunit=USD|player=twitch LAIKbl |player1= Ikaros}}
+{{TournamentResultsLineDuos|place=19|prize=|prizeunit=USD|player=Mad_Ruski |player1= C9 Chappie}}
+{{TournamentResultsLineDuos|place=20|prize=|prizeunit=USD|player=Mtashed |player1= Truevanguard}}
+{{TournamentResultsLineDuos|place=21|prize=|prizeunit=USD|player=Teldo |player1= twitch.tv/thordg}}
+{{TournamentResultsLineDuos|place=22|prize=|prizeunit=USD|player=HighscoreHero |player1= Gorg}}
+{{TournamentResultsLineDuos|place=23|prize=|prizeunit=USD|player=.tv/TheLuffyTV |player1= Enta}}
+{{TournamentResultsLineDuos|place=24|prize=|prizeunit=USD|player=Kwolve |player1= KevaFlazh}}
+{{TournamentResultsLineDuos|place=25|prize=|prizeunit=USD|player=DeGuN :o) |player1= Locklear}}
+{{TournamentResultsLineDuos|place=26|prize=|prizeunit=USD|player=Jaggerous |player1= Ry.}}
+{{TournamentResultsLineDuos|place=27|prize=|prizeunit=USD|player=ZombiUnicorn |player1= AimzAtchu AimzAtchu}}
+{{TournamentResultsLineDuos|place=28|prize=|prizeunit=USD|player=Lassiz |player1= Incon}}
+{{TournamentResultsLineDuos|place=29|prize=|prizeunit=USD|player=mykL |player1= MOETORIOUS}}
+{{TournamentResultsLineDuos|place=30|prize=|prizeunit=USD|player=twitch.tv/cePrime |player1= GIDDERS}}
+{{TournamentResultsLineDuos|place=31|prize=|prizeunit=USD|player=unge |player1= INNERVAULT}}
+{{TournamentResultsLineDuos|place=32|prize=|prizeunit=USD|player=Cirouss |player1= kllsen.BIG}}
+{{TournamentResultsLineDuos|place=33|prize=|prizeunit=USD|player=Onylight |player1= Faz}}
+{{TournamentResultsLineDuos|place=34|prize=|prizeunit=USD|player=pF.OctanePro |player1= pF.Scissors}}
+{{TournamentResultsLineDuos|place=35|prize=|prizeunit=USD|player=Whitey |player1= OWND.TV hEnGzT}}
+{{TournamentResultsLineDuos|place=36|prize=|prizeunit=USD|player=Dhalucard |player1= Dadosch}}
+{{TournamentResultsLineDuos|place=37|prize=|prizeunit=USD|player=Der Butterer |player1= MarcoOPz}}
+{{TournamentResultsLineDuos|place=38|prize=|prizeunit=USD|player=Shlorox |player1= LaraLoft}}
+{{TournamentResultsLineDuos|place=39|prize=|prizeunit=USD|player=NokSs |player1= !buZ }}

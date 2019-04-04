@@ -1,0 +1,153 @@
+pygame shenaningans
+https://www.pygame.org/docs/
+to install pygame 
+go to the scripts folder and run pip install pygamew
+
+Basic Program
+.	import pygame, sys
+importing the pygame and sys modules
+
+.	from pygame.locals import *
+-- normally if you want to call a function that is in a module,  you use
+modulename.functionname() format after importing the module
+However with from modulename import * you can skip the modulename. 
+portion and simply use functionname() like built in functions
+
+. pygame.init()
+
+--this needs to be called for many pygame functions to work
+
+. DISPLAYSURF = pygame.display.set_mode((400,300))
+
+--(400,300) is a tuple. pygame.display controls the display , duuh
+i.e the window the game is on... The function above sets displaysurf 
+to a window(surface object) that has a width of 400 px and a height of
+300px
+
+there are functions constructors and methods
+
+functions are just called
+boost()
+
+methods are called on objects
+bert.beBoosted()
+
+and constructors return an object
+
+bert = boosted()
+
+also when a function is called on a module not a variable it is not 
+a method call it is a function call
+import boostedClass
+
+boostedClass.boostedFew()
+
+anything drawn on our displaysurf buddy over there will be displayed on the window
+
+in pygame colors are stored using tuples (R,G,B,A)
+a represents alpha value which means how transparent the color is
+0 means completely trasnparent and 255 means defsNotTransparent
+
+you need a special surface that allows transparency 
+
+	notHirez = DISPLAYSURF.convert_alpha()
+
+to make colors you can also use 
+pygame.Color(255,0,0,128)... I dont see the point cause it looks
+like it just returns a tuple
+
+Rect objects(Rectangle)
+	rectangular areas are represented with a tuple containing 4 integers
+		1. X coordinate of top left corner
+		2. Y coordinate of top left corner
+		3. width of rect in pixels
+		4. height of rect in pixels
+you could also do pygame.Rect(10,20,200,300) but again like 
+pygame.color, seems pointless
+
+there are benefits to using pygame.rect, you get some cool attributes
+that are automatically calculated 
+myRect = pygame.Rect(10,20,200,300)
+------------------------------------------------------------------------------------------------
+Attribute Name	  |	Description
+------------------------------------------------------------------------------------------------
+myRect.left	  	  |	The int value of the X-coordinate of the left side of the rectangle.
+myRect.right	  |	The int value of the X-coordinate of the right side of the rectangle.
+myRect.top	  	  |	The int value of the Y-coordinate of the top side of the rectangle.
+myRect.bottom	  |	The int value of the Y-coordinate of the bottom side.
+myRect.centerx	  |	The int value of the X-coordinate of the center of the rectangle.
+myRect.centery	  |	The int value of the Y-coordinate of the center of the rectangle.
+myRect.width	  |	The int value of the width of the rectangle.
+myRect.height	  |	The int value of the height of the rectangle.
+myRect.size	  	  |	A tuple of two ints: (width, height)
+myRect.topleft	  |	A tuple of two ints: (left, top)
+myRect.topright	  |	A tuple of two ints: (right, top)
+myRect.bottomleft |	A tuple of two ints: (left, bottom)
+myRect.bottomright|	A tuple of two ints: (right, bottom)
+myRect.midleft	  |	A tuple of two ints: (left, centery)
+myRect.midright	  |	A tuple of two ints: (right, centery)
+myRect.midtop	  |	A tuple of two ints: (centerx, top)
+myRect.midbottom  |	A tuple of two ints: (centerx, bottom)
+
+sprites, 
+we can put in images using blit method
+blit() its called on the surface object  and its passed the pygame.image object
+and the image x and y coordinate tuple as parameters.This image can be animated by adding
+and subtracting from the x and y cooordinates as the display updates
+
+the pygame.image object is created using the 
+	pygame.image.load(' image file path relative to the folder that the script is in')
+the object is a whole new surface object with the image drawn on it
+blit copies this surface object over to hirez surface
+
+FPS
+	pygame.time.clock() returns a clock object that is used to set the
+	maximum fps of ya game cause if the maximum fps is not set then the 
+	pc will run it as fast as possible and sometimes thats faster than the user 
+	can handle
+
+	use clockObjectsName.tick(FPS) to set the maximum fps at the end, usually
+	after the display updates(pygame.display.update()
+
+
+
+The six steps to making text appear on the screen
+	1. create a pygame.font.Font object
+		fontObj = pygame.font.Font('fontname.ttf',<fontsize>)
+	2. create a surface object with the text drawn on it by calling the 
+render() method
+		textSurfaceObj = fontObj.render('Hello world!',True,GREEN,BLUE)
+	3. create a Rect object from the surface object by calling the surface
+object's get_rect() method. this rectangle will automatically make itself
+match the text
+		textRectObj = textSurfaceObj.get_rect()
+	4.set the position of the rect by changing one of the attributes e.g the centre
+		textRectObj.centre = (200,150)
+	5.Blit the surface object with the text to HiRez
+		HiRez.blit(textSurfaceObj,textRectObj)
+	6. call pygame.display.update()
+
+render() {method called on font.Font object}
+	draw text on a new Surface
+	render(text, antialias, color, background=None) -> Surface
+	This creates a new Surface with the specified text rendered on it. 
+	pygame provides no way to directly draw text on an existing Surface: 
+	instead you must use Font.render() to create an image (Surface) 
+	of the text, then blit this image onto another Surface.
+
+playing sounds is basic shiz
+	You create a pygame.mixer.Sound() object using the constructor that takes
+		the path of the audio file as a parameter: pygame.mixer.Sound('file path here')
+	Then you call the play() method on the object to play and the
+		stop() method to stop
+
+you can also load background music using the
+	pygame.mixer.music.load(<music file>) function which saves the 
+	file in netherland
+	then you call 
+	pygame.mixer.music.play(-1,0.0) to loop the file we saved in nether land
+
+	then we can stop netherland file using 
+	pygame.mixer.music.stop()
+	
+make it possible to show transparency on a display surface by calling .convert_alpha() on it

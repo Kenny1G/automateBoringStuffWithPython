@@ -1,0 +1,1 @@
+@py.exe C:\PythonScripts\8ball.py %*

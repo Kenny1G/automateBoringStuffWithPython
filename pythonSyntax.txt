@@ -1,0 +1,200 @@
+Python syntax's
+os.walk():
+for folderName, subfolders, filenames in os.walk('C:\\delicious'):
+    print('The current folder is ' + folderName)
+
+    for subfolder in subfolders:
+        print('SUBFOLDER OF ' + folderName + ': ' + subfolder)
+    for filename in filenames:
+        print('FILE INSIDE ' + folderName + ': '+ filename)
+
+How to get file Size:
+	os.path.getsize(path) returns a number representing the number of bytes
+
+try syntax and except syntax
+	try:
+...         x = int(input("Please enter a number: "))
+...         break
+...     except ValueError:
+...         print("Oops!  That was no valid number.  Try again...")
+
+How to install a package on your machine 
+	pip install <package-name>
+
+How to create a virtual environment
+	python -m venv venv
+
+How to activate your virtual environment
+	venv\Scripts\activate
+
+to make a base html template 
+	{% block content %} {% endblock %}
+
+How to create a form using flask_wtf and wtfoforms:
+1: import FlaskForm from flask_wtf and wtforms
+2: create a class LoginForm(FlaskForm)
+3: define your fields, there ae stringfields,passwordfields, booleanfields and a 
+	submitfield, the first two take 2 parameters the name you want the 
+	field to display and the validator while the last 2 just take the 
+	former, you have to import all these fields from wtforms
+	and you import datarequired from wtforms.validators 
+4: in your route import LoginForms from app.forms and create your view
+
+from flask_wtf import FlaskForm
+from wtforms import StringField, PasswordField, BooleanField, SubmitField
+from wtforms.validators import DataRequired
+
+class LoginForm(FlaskForm):
+    username = StringField('Username', validators=[DataRequired()])
+    password = PasswordField('Password', validators=[DataRequired()])
+    remember_me = BooleanField('Remember Me')
+    submit = SubmitField('Sign In')	
+
+
+Logging shit
+	#if not os.path.exists('logs'):
+        #    os.mkdir('logs')
+        #we writing the file in a file called microblog.log in a logs directory,
+        #which we create if it doesnt exist
+        #RotatingFileHandler makes sure the files dont get too large when
+        # it reaches max bytes a new file is made
+        #file_handler = RotatingFileHandler('logs/microblog.log',maxBytes=10240,
+        #                                    backupCount=10)
+        #used to  format the logs so they make sense
+        #file_handler.setFormatter(logging.Formatter(
+        #'%(asctime)s %(levelname)s: %(message)s [in %(pathname)s:%(lieno)d]'))
+        #set the handler so it sends info as well as errors. you know when server restarts
+        #file_handler.setLevel(logging.INFO)
+        #app.logger.addHandler(file_handler)
+
+        #app.logger.setLevel(logging.INFO)
+        #app.logger.info('Microblog startup')
+
+hashing passwords
+to do this we use werkzeug, it comes with the installation of Flask
+we need the generate_password_hash and the check_password_hash functions
+imported from werkzeug.security
+then in our User model class we make two funtions:
+One to generate a password hash and another to check the password 
+hash
+
+Flask-Login
+this extension to manage user logged-in state
+	install it using: pip install flask-login
+everything we need from this extension can be imported using :
+	from flask_login import <thing>
+then initialize it in the __init__.py module
+	.......................<LoginManager>	
+	< all the other code initializing stuff >
+	login = LoginManager(app)
+In the model module (which is were our user class is chilling )
+inherit the UserMixin class, import it first
+	inheritance works like this :
+http://blog.thedigitalcatonline.com/blog/2014/05/19/method-overriding-in-python/
+create a user loader to get a user object, dont forget to import login
+	@login.user_loader
+	def load_user(id):
+    		return User.query.get(int(id))
+now to actually log users in 
+you do this in the login function for the /login route
+	1:you check if they are already logged in using flask.current_use and 
+	the .is_authenticated property we inherited from user mixin, if
+	they are logged in redirect
+	
+	2:you get your form (app.form.LoginForm)
+	3:check if user clicked on submit button
+	4: get user from database using username provided in form
+	5: check if user doesnt exist or if password is incorrect 
+		if so then flash text and redirect to fresh login 
+	(p.s redirects are returns)
+	6: login user using the login_user() funtion it takes additional
+		parameter 'remember'
+	7: redirect to homepage
+
+finally create a route to log users out using the logout_user fucntion
+
+Profile pages
+
+paginate
+a function that  takes 3 parameters:
+	the page number starting from 1
+	the number of items per page
+	an error flag. 
+	If True, when an out of range page is requested a 404 error
+	will be automatically returned to the client. 
+	If False, an empty list will be returned 
+	for out of range pages.
+<user.followed_posts().paginate(1, 20, False).items> returns a list
+of the posts that the user follows. user.followed_posts() is an sqlalchemy
+object
+user.followed_posts().paginate(1, 20, False) returns a pagination object
+
+sending emails
+we gonna use the flask-mail module
+then we do the normal setting up of it in init
+	from flask_mail import Mail
+	mail = Mail()
+
+then we create a method that will send the mail using Message
+which we import from flask_mail and our predefined mail which
+we will import from app
+then we use the Message function which takes 3 parameters :
+	subject,sender=sender,recipients=recipients
+then we define the body byt using 
+	msg.body= <body>
+and
+	msg.html = <body in html>
+then we send it using 
+	mail.send(msg)
+flask mail documentation: https://pythonhosted.org/Flask-Mail/
+
+resetting passwords
+when generating the tokens used to reset users password
+we use the pyjwt package
+	token = jwt.encode(<dictionary with important info>, '<secret key(get from config)>', algorithm='HS256')
+	
+	jwt.decode(token, '<secret key(get from config)>', algorithms=['HS256'])
+returns the dictionary
+
+Date and time shit
+
+we use flask-moment. a flask extention for the Moment.js library
+then initialise it, 
+then in base.html add the javascript script using
+
+{{ moment.include_moment() }}
+in a scripts blocked that you super cause you dont want to ovewrite it
+
+you can then use the moment methods
+
+moment('2017-09-28T21:45:23Z').format('L')
+"09/28/2017"
+moment('2017-09-28T21:45:23Z').format('LL')
+"September 28, 2017"
+moment('2017-09-28T21:45:23Z').format('LLL')
+"September 28, 2017 2:45 PM"
+moment('2017-09-28T21:45:23Z').format('LLLL')
+"Thursday, September 28, 2017 2:45 PM"
+moment('2017-09-28T21:45:23Z').format('dddd')
+"Thursday"
+moment('2017-09-28T21:45:23Z').fromNow()
+"7 hours ago"
+moment('2017-09-28T21:45:23Z').calendar()
+"Today at 2:45 PM"
+
+replace the string with your python object e.g: 
+{{ moment(user.last_seen).format('LLL') }}
+
+BluePrints
+blueprints are temporary storages for application functionality 
+that helps in organizing code
+
+so to create a blueprint is not that hard 
+you make a subdirectory for the blue print
+
+then you make its init
+
+	from flask import Blueprint
+	
+	bp = Blueprint('<name of blue print>',__name__)
+	from app.<name of blue print>' import <the defining code of this blueprint>

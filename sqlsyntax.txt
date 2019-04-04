@@ -1,0 +1,56 @@
+Sql Alchemy syntax
+
+Databases in flask 
+extensions you need for a reltional one:
+Flask-SQLSAlchemy:flask wrapper to the sqlalchemy package
+	pip install flask-sqlalchemy
+Flask-Migrate: helps provide a robust way to make changes to your 
+database in the future
+	pip install flask-migrate
+
+		Setting up a database:
+1: configure it:
+	SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL) or \
+	'sqlite:///' + os.path.join(basedir,'app,db')
+	SQLALCHEMY_TRACK_MODIFICATIONS = False #dont track mods or w/e
+ps basedir is the absolute path of the directory name of the file 
+	basedir = os.path.abspath(os.path.dirname(__file__))
+2: initiate it:
+	in init file create the objects youll be calling on. 
+	db = SQLAlchemy(app)
+	migrate = Migrate(app,db)
+
+ps you import SQLAlchemy and Migrate from flask_sqlalchemy and flask_migrate respectively
+
+then finally you want to import models after importing routes
+3: Create models 
+	the models are usually classes e.g 
+		Class User(db.Model):
+			# field code
+			
+			def __repr__(self):
+				return '<user {}>'.format(self.username)
+the field code is defined as class variables which are instances of 
+the db.Column class, they take the field type as arguments as long 
+with some extras e.g:
+	username = db.column(db.String(64),index=True,unique=True)
+4: make the shit that makes changes easy (Migration)
+	start by running    flask db init      in the console
+			-then run flask db migrate   also in the console
+run these two whenever	|
+you make changes to	| 
+the database		|
+			-finally run flask db upgrade
+
+to link two tables.
+	1:user_id = db.Column(db.Integer,db.ForeignKey('user.id'))
+	2:posts = db.relationship('Post',backref = 'author',lazy='dynamic')
+1 goes to the many side of the one to many relationship and 2 goes to the one side 
+of the one to many relationship
+
+for many to many relationship 
+
+
+
+
+
